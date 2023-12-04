@@ -15,26 +15,35 @@
     <title>Admin</title>
 </head>
 <body>
-    <nav class="navbar">
-        <!-- LOGO -->
-        <a href="../index.html">
-            <i style="font-size:54px" class="fa">&#xf011;</i>
-           </a> 
-        <!-- Links -->
-        <ul class="mx-5">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../html/about.html">About</a></li>
-          <li><a href="../html/product.html">Product</a></li>
-          <li><a href="../html/admin.html">Admin</a></li>
-          <li><a href="../html/checkout.html">Checkout</a></li>
-          <li><a href="../html/contact.html" >Contact</a></li>
+    
+  <nav class="navbar navbar-expand-lg">
+    <!-- LOGO -->
+    <a class="navbar-brand" href="../index.html">
+        <i style="font-size:54px" class="fa">&#xf011;</i>
+    </a>
+
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto"> <!-- Adjusted to align links to the right -->
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="./product.html">Product</a></li>
+            <li class="nav-item"><a class="nav-link" href="./admin.html">Admin</a></li>
+            <li class="nav-item"><a class="nav-link" href="./checkout.html">Checkout</a></li>
+            <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
         </ul>
-      </nav>
+    </div>
+</nav>
 
 
 
       <footer class="footer">
-        <p>&copy; 2023 <i style="font-size: 18px" class="fa">&#xf011;</i>ffline Tech. All Rights Reserved.</p>
+        <p class="footP">&copy; 2023 <i style="font-size: 18px" class="fa">&#xf011;</i>ffline Tech. All Rights Reserved.</p>
     </footer>
 
     <script src="../script/admin.js"></script>

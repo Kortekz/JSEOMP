@@ -11,6 +11,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding: 15px;
+    margin-right: 35px;
   }
   .navbar i {
     padding-top: 20px;
@@ -44,8 +45,6 @@ html, body {
 }
 
 /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */
-
-
 .container {
     text-align: center !important; 
     padding-top: 150px;
@@ -77,15 +76,58 @@ html, body {
     padding-top: 8px;
 }
 
+/* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */
 
-/* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */
+.aboutBod{
+    height: 100vh;
+}
+.containerAb {
+    text-align: center !important; 
+    padding-top: 30px;
+}
+.abouth1{
+    color: black;
+}
+.aboutP{
+    font-size: 17px;
+    padding-top: 8px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+/* IMAGES */
+.images{
+    display: flex;
+    padding: 50px;
+    margin-right: 50px;
+    justify-content: center;
+}
+.small-img {
+    max-width: 450px; 
+    padding-left: 50px;
+    height: auto; 
+    
+}
+
+/* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    color: #000000; 
+    color: #000000;
+}
+.footP{
+    font-size: 18px;
+}
+/* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ 
+.footerAb {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    color: #000000;
 }
 .footP{
     font-size: 18px;
