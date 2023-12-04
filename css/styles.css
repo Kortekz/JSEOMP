@@ -43,7 +43,42 @@ html, body {
     margin: 0;
 }
 
-/* Footer */
+/* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */
+
+
+.container {
+    text-align: center !important; 
+    padding-top: 150px;
+}
+.black-button {
+    background-color: black; 
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+.black-button a {
+    color: white; 
+    text-decoration: none;
+}
+.black-button a:hover {
+    color: white; 
+    text-decoration: none;
+}
+.black-button:hover {
+    background-color: #333; 
+    color: white;
+}
+.homeh1{
+    color: black;
+}
+.homeP{
+    font-size: 20px;
+    padding-top: 8px;
+}
+
+
+/* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */ /* FOOTER */
 .footer {
     position: absolute;
     bottom: 0;
@@ -51,4 +86,7 @@ html, body {
     text-align: center;
     padding: 10px 0;
     color: #000000; 
+}
+.footP{
+    font-size: 18px;
 }
