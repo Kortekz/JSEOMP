@@ -16,8 +16,8 @@ body {
     margin-right: 35px;
   }
   .navbar i {
-    padding-top: 20px;
-    padding-left: 25px;
+    padding-top: 18px;
+    padding-left: 35px;
   }
   .navbar ul {
     list-style-type: none;
@@ -50,11 +50,15 @@ html, body {
     padding-top: 150px;
 }
 .black-button {
-    background-color: black; 
+    background-color: #000000;
+    color: white;
     border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
+    width: 100px;
+    padding: 15px;
     border-radius: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
 }
 .black-button a {
     color: white; 
@@ -108,7 +112,6 @@ html, body {
 }
 
 /* PRODUCT PAGE */ /* PRODUCT PAGE */ /* PRODUCT PAGE */ /* PRODUCT PAGE *//* PRODUCT PAGE */ /* PRODUCT PAGE */
-
 .Pro{
     text-align: center;
     padding-top: 20px;
@@ -116,11 +119,11 @@ html, body {
 .sort-search-container {
     display: flex;
     justify-content: space-between;
-   margin-top: 100px;
-   margin-left: 100px;
-   margin-right: 100px;
+   margin-top: 80px;
+   margin-left: 180px;
+   margin-right: 120px;
+   margin-bottom: 50px;
 }
-
 .search {
     display: flex;
     align-items: center;
@@ -139,9 +142,9 @@ html, body {
     color: white;
     border: none;
     width: 100px;
-    padding: 15px;
+    padding: 10px;
     border-radius: 15px;
-    font-size: 15px;
+    font-size: 18px;
     text-transform: uppercase;
     transition: 0.3s ease;
 }
@@ -152,14 +155,15 @@ html, body {
     color: #000000;
     font-weight: 700;
   }
-
 .searchBtn {
     background-color: #000000;
     color: white;
     border: none;
     padding: 10px;
+    padding-bottom: 8px;
+    padding-top: 6px;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 20px;
     text-transform: uppercase;
     transition: 0.3s ease;
 }
@@ -171,7 +175,6 @@ html, body {
     font-weight: 700;
   }
 
-
 /* CSS for Product Cards */
 .product-container {
     display: flex;
@@ -181,7 +184,6 @@ html, body {
     padding: 20px;
     margin-left: 50px;
     margin-right: 50px;
-    
   }
   .card {
     width: 350px;
@@ -190,7 +192,6 @@ html, body {
     align-items: center;
     text-align: center;
     padding: 40px;
-    
   }
   .card-text {
     font-size: 18px;
@@ -209,7 +210,6 @@ html, body {
   .card-body {
     padding: 1.25rem;
   }
-  
   .btn1{
     background-color: #000000;
     color: white;
@@ -227,9 +227,8 @@ html, body {
     color: #000000;
     font-weight: 700;
   }
-
-  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */
   
+  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */
   main{
     padding-top: 60px;
   }
@@ -237,28 +236,27 @@ html, body {
     text-align: center;
     padding-bottom: 60px;
   }
-  
   table {
     width: 90%;
     border-collapse: collapse;
-    margin: 20px auto; 
+    margin: 20px auto;
+    border: 2px solid #000000;
   }
-  
   th, td {
-    border: 1px solid #000000; /* Change the border color to black */
+    border: 2px solid #000000 !important;
     text-align: left;
     padding: 15px;
+    font-size: 18px;
   }
-  
   th {
-    background-color: #f2f2f2;
+    background-color: #000000;
+    color: white;
+    text-align: center !important;
   }
-  
-  img {
-    width: 150px;
-    height: 150px;
+  .adminImg {
+    width: 200px;
+    height: 200px;
   }
-  
   button.add,
   button.edit,
   button.delete {
@@ -281,9 +279,29 @@ html, body {
     border: 2px solid black;
   }
   
-  
-  
-
+.addBtn{
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    width: 120px;
+}
+.addBtn:hover {
+    background-color: transparent;
+    color: black;
+    transition: background-color 0.3s ease;
+    border: 2px solid black;
+  }
+  .btnAdd{
+    position: absolute;
+    margin-left: 1200px;
+    padding-top: 40px;
+    
+  }
 /* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
 .footer {
     position: absolute;
@@ -299,7 +317,7 @@ html, body {
 /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */
 .footerPro {
     position: absolute;
-    bottom: -1200px;
+    bottom: -1050px;
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -308,7 +326,7 @@ html, body {
 /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ 
 .footerAb {
     position: absolute;
-    bottom: -100px;
+    bottom: -150px;
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -318,7 +336,7 @@ html, body {
 /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */
 .footerAd {
     position: absolute;
-    bottom: -800px;
+    bottom: -1000px;
     width: 100%;
     text-align: center;
     padding: 10px 0;
