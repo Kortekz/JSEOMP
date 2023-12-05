@@ -20,10 +20,9 @@ let product5 = new Constructor(5, 'PS5 Glacier White', 'PS5 Glacier White Disc E
 
 // Pushing the products into the empty array
 items.push(product1, product2, product3, product4, product5)
-items = JSON.parse(localStorage.getItem('items'))
 localStorage.setItem('items', JSON.stringify(items))
+items = JSON.parse(localStorage.getItem('items'))
 
-// declaring the table with DOM
 let table = document.querySelector('table')
 
 // Function to render the products in the table
@@ -65,25 +64,23 @@ function corne(){
     <div class="btnAdd">
     <button class="addBtn"> Add Products </button>
     </div>
-    `
+    `;
     table.innerHTML = tableHead + tableBody + addBtn
 }
 corne()
 
 function favourite(){
-    // JSON.parse converts string to array
-    items = JSON.parse(localStorage.getItem('items'))
-    localStorage.setItem('items',JSON.stringify(items))
     // sets the array in local storage
+    localStorage.setItem('items',JSON.stringify(items))
+    items = JSON.parse(localStorage.getItem('items'))
+    // JSON.parse converts string to array
 }
-// Function to remove an item from the items array based on its position
+
+// Function to remove an item from the 'items' array based on its position
 function remove(position) {
-    items.splice(position, 1)
-    // Removes the item at the specified position from the items array
-    favourite()
-    // Updates the local storage with the modified 'items' array
-    corne()
-    // Renders the updated table after the item is removed
+    items.splice(position, 1) // Removes the item at the specified position from the items array
+    favourite() // Updates the local storage with the modified 'items' array
+    corne() // Renders the updated table after the item is removed
 }
 
 // Event listener for table clicks
@@ -92,14 +89,13 @@ table.addEventListener('click', function() {
     if (event.target.classList.contains('delete')) {
         remove(event.target.value) 
         // Calls the 'remove' function with the value (index) of the clicked delete button
-        // Checks if all items are deleted then renders a spinner
+        // Checks if all items are deleted (items.length === 0), then renders a spinner
         if (items.length === 0) {
             renderSpinner() 
             // Renders a spinner in the table when all items are deleted
         }
     }
 })
-
 
 // Function to render spinner when all items are deleted
 function renderSpinner() {
@@ -111,6 +107,8 @@ function renderSpinner() {
             </div>
         </div>
     `
+    // Replace the entire table content with the spinner
     table.innerHTML = spinnerHTML
-    // Replace table content with spinner
+    // Remove table border styling
+    table.style.border = 'none'
 }
