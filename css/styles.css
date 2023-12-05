@@ -107,6 +107,183 @@ html, body {
     
 }
 
+/* PRODUCT PAGE */ /* PRODUCT PAGE */ /* PRODUCT PAGE */ /* PRODUCT PAGE *//* PRODUCT PAGE */ /* PRODUCT PAGE */
+
+.Pro{
+    text-align: center;
+    padding-top: 20px;
+}
+.sort-search-container {
+    display: flex;
+    justify-content: space-between;
+   margin-top: 100px;
+   margin-left: 100px;
+   margin-right: 100px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+}
+.space{
+    padding-right: 20px;
+}
+.textSearch {
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 7px;
+}
+.sortBtn{
+    background-color: #000000;
+    color: white;
+    border: none;
+    width: 100px;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+.sortBtn:hover{
+    background-color: transparent;
+    border: 2px solid black;
+    transition: 0.3s ease;
+    color: #000000;
+    font-weight: 700;
+  }
+
+.searchBtn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+.searchBtn:hover{
+    background-color: transparent;
+    border: 2px solid black;
+    transition: 0.3s ease;
+    color: #000000;
+    font-weight: 700;
+  }
+
+
+/* CSS for Product Cards */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    
+  }
+  .card {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    
+  }
+  .card-text {
+    font-size: 18px;
+    font-weight: 500; 
+    padding: 10px;
+  }
+  .card-price{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+  }
+  .product-image {
+    max-width: 250px;
+    height: auto;
+  }
+  .card-body {
+    padding: 1.25rem;
+  }
+  
+  .btn1{
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+  }
+  .btn1:hover{
+    background-color: transparent;
+    border: 2px solid black;
+    transition: 0.3s ease;
+    color: #000000;
+    font-weight: 700;
+  }
+
+  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */
+  
+  main{
+    padding-top: 60px;
+  }
+  .h1Ad{
+    text-align: center;
+    padding-bottom: 60px;
+  }
+  
+  table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto; 
+  }
+  
+  th, td {
+    border: 1px solid #000000; /* Change the border color to black */
+    text-align: left;
+    padding: 15px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  button.add,
+  button.edit,
+  button.delete {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+  }
+  
+  button.add:hover,
+  button.edit:hover,
+  button.delete:hover {
+    background-color: transparent;
+    color: black;
+    transition: background-color 0.3s ease;
+    border: 2px solid black;
+  }
+  
+  
+  
+
 /* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
 .footer {
     position: absolute;
@@ -119,6 +296,15 @@ html, body {
 .footP{
     font-size: 18px;
 }
+/* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */
+.footerPro {
+    position: absolute;
+    bottom: -1200px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    color: #000000;
+}
 /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ 
 .footerAb {
     position: absolute;
@@ -128,6 +314,14 @@ html, body {
     padding: 10px 0;
     color: #000000;
 }
-.footP{
-    font-size: 18px;
+
+/* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */
+.footerAd {
+    position: absolute;
+    bottom: -800px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    color: #000000;
 }
+
