@@ -10,6 +10,7 @@ function Constructor(id, name, description, price, url){
     this.description = description
     this.price = price
     this.url = url
+    this.quantity = 1
 }
 // Adding products
 let product1 = new Constructor(1, 'Xbox Series X Bundle', 'Xbox Series X 1TB + 3 Games + Controller', 11999, 'https://i.postimg.cc/gkqSwWj9/XBOX-SX-BNDL.jpg');
@@ -17,9 +18,10 @@ let product2 = new Constructor(2, 'PS5 Spider-Man Bundle', 'PS5 1TB + Spider-Man
 let product3 = new Constructor(3, 'PS5 Slim COD Bundle', 'PS5 1TB + Call Of Duty Modern Warfare III + Controller', 12499, 'https://i.postimg.cc/Mp0FWSD9/Ps5SLim.jpg');
 let product4 = new Constructor(4, 'Xbox Series S Bundle', 'Xbox Series S + 3 Games + Controller ', 8499, 'https://i.postimg.cc/xdB9NZqJ/XBOXBNDL2.jpg');
 let product5 = new Constructor(5, 'PS5 Glacier White', 'PS5 Glacier White Disc Edition 1TB + Controller', 10999, 'https://i.postimg.cc/63z2GWVY/PS5-Glacier.jpg');
+let product6 = new Constructor(6, 'Xbox Series X Bundle', 'Xbox Series X 1TB + Diablo V + Controller', 10499, 'https://i.postimg.cc/c4MM5rSc/XBXSX-bndly1.jpg');
 
 // Pushing the products into the empty array
-items.push(product1, product2, product3, product4, product5)
+items.push(product1, product2, product3, product4, product5, product6)
 localStorage.setItem('items', JSON.stringify(items))
 items = JSON.parse(localStorage.getItem('items'))
 
@@ -76,7 +78,7 @@ function favourite(){
     // JSON.parse converts string to array
 }
 
-// Function to remove an item from the 'items' array based on its position
+// Function to remove an item from the items array based on its position
 function remove(position) {
     items.splice(position, 1) // Removes the item at the specified position from the items array
     favourite() // Updates the local storage with the modified 'items' array
