@@ -64,7 +64,7 @@ function corne(){
     // Adding Add Products button 
     let addBtn = `
     <div class="btnAdd">
-    <button class="addBtn"> Add Products </button>
+    <button class="addBtn" id="adminAdd"> Add Products </button>
     </div>
     `;
     table.innerHTML = tableHead + tableBody + addBtn
@@ -114,3 +114,72 @@ function renderSpinner() {
     // Remove table border styling
     table.style.border = 'none'
 }
+
+// Event listener for 'Add Products' button click to display the modal
+document.getElementById('adminAdd').addEventListener('click', function(){
+
+    // Display the modal using innerHTML
+    document.getElementById('modal').innerHTML = `
+        <div id="addItemModal" class="modal fade" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addItemModalLabel">Add New Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addItemForm">
+                        <label for="itemId">ID:</label>
+                        <input type="number" id="itemId" required>
+                        <label for="itemName">Name:</label>
+                        <input type="text" id="itemName" required>
+                        <label for="itemDescription">Description:</label>
+                        <input type="text" id="itemDescription" required>
+                        <label for="itemPrice">Price:</label>
+                        <input type="number" id="itemPrice" required>
+                        <input type="submit" value="Add Item">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    // Show the modal
+    let addItemModal = new bootstrap.Modal(document.getElementById('addItemModal'));
+    addItemModal.show();
+
+    // Add an event listener to the form inside the modal to handle new item addition
+    document.getElementById('addItemForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        // Get values from the form
+        let newItemId = document.getElementById('itemId').value;
+        let newItemName = document.getElementById('itemName').value;
+        let newItemDescription = document.getElementById('itemDescription').value;
+        let newItemPrice = document.getElementById('itemPrice').value;
+
+        // Create a new item object
+        let newItem = {
+            id: parseInt(newItemId),
+            name: newItemName,
+            description: newItemDescription,
+            price: parseInt(newItemPrice),
+            url: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png',
+            quantity: 1,
+        };
+
+        // Add the new item to the items array
+        items.push(newItem);
+
+        // Save the updated items array to local storage
+        localStorage.setItem('items', JSON.stringify(items));
+
+        // Refresh the table to display the new item
+        corne();
+
+        // Hide the modal
+        addItemModal.hide();
+    });
+});
+
+    

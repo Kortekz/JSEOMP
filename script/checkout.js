@@ -156,22 +156,23 @@ window.addEventListener('load', btnVisible);
 // Function to handle the purchase action
 function purchaseAct() {
     let modalContent = `
-        <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="purchaseModalLabel">Purchase Confirmation</h5>
-                        <button type="button" class="btn-close" id="modalClose" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Thank you for your purchase!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="modalCloseButton" data-bs-dismiss="modal">OK</button>
-                    </div>
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseModalLabel">Purchase Confirmation</h5>
+                    <button type="button" class="btn-close" id="modalClose" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Thank you for your purchase!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="modalCloseButton" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
-        </div>`;
+        </div>
+    </div>
+        `;
 
     let modalContainer = document.createElement('div');
     modalContainer.innerHTML = modalContent;
