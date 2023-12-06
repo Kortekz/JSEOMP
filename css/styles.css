@@ -47,7 +47,7 @@ html, body {
 /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */
 .container {
     text-align: center !important; 
-    padding-top: 150px;
+    padding-top: 50px;
 }
 .black-button {
     background-color: #000000;
@@ -74,10 +74,12 @@ html, body {
 }
 .homeh1{
     color: black;
+    padding-bottom: 20px;
 }
 .homeP{
     font-size: 20px;
     padding-top: 8px;
+    padding-bottom: 20px;
 }
 
 /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */
@@ -115,6 +117,7 @@ html, body {
 .Pro{
     text-align: center;
     padding-top: 20px;
+    color: black;
 }
 .sort-search-container {
     display: flex;
@@ -135,7 +138,7 @@ html, body {
 .textSearch {
     border-radius: 5px;
     border: 2px solid black;
-    padding: 7px;
+    padding: 10px;
 }
 .sortBtn{
     background-color: #000000;
@@ -160,8 +163,10 @@ html, body {
     color: white;
     border: none;
     padding: 10px;
-    padding-bottom: 8px;
-    padding-top: 6px;
+    padding-bottom: 9px;
+    padding-top: 7px;
+    padding-left: 13px;
+    padding-right: 12px;
     border-radius: 10px;
     font-size: 20px;
     text-transform: uppercase;
@@ -235,6 +240,7 @@ html, body {
   .h1Ad{
     text-align: center;
     padding-bottom: 60px;
+    color: black;
   }
   table {
     width: 90%;
@@ -269,7 +275,6 @@ html, body {
     text-transform: uppercase;
     transition: 0.3s ease;
   }
-  
   button.add:hover,
   button.edit:hover,
   button.delete:hover {
@@ -278,7 +283,6 @@ html, body {
     transition: background-color 0.3s ease;
     border: 2px solid black;
   }
-  
 .addBtn{
     background-color: #000000;
     color: white;
@@ -300,12 +304,94 @@ html, body {
     position: absolute;
     margin-left: 1200px;
     padding-top: 40px;
-    
   }
+
+/* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ 
+.checkH1{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  color: black;
+}
+.checkText{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  padding-top: 100px;
+}
+#purchaseButton{
+  background-color: rgb(0, 191, 0);;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  width: 120px;
+}
+#purchaseButton:hover {
+  background-color: transparent;
+  color: rgb(0, 191, 0);
+  transition: background-color 0.3s ease;
+  border: 2px solid rgb(0, 191, 0);;
+}
+.btnPur {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.tableTotal{
+  padding-right: 32px;
+  padding-top: 10px;
+  font-size: 25px;
+  text-align: right;
+  font-weight: 700;
+}
+.checkP{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid black;
+  width: 80%;
+  max-width: 600px;
+  font-size: 20px;
+}
+.close {
+  color: black;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  text-decoration: none;
+}
+
+
 /* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
 .footer {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -313,11 +399,12 @@ html, body {
 }
 .footP{
     font-size: 18px;
+    text-align: center;
 }
 /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */
 .footerPro {
-    position: absolute;
-    bottom: -1050px;
+    position: relative;
+    bottom: -50px;
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -325,8 +412,8 @@ html, body {
 }
 /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ 
 .footerAb {
-    position: absolute;
-    bottom: -150px;
+    position: relative;
+    bottom: -100px;
     width: 100%;
     text-align: center;
     padding: 10px 0;
@@ -335,11 +422,20 @@ html, body {
 
 /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */
 .footerAd {
-    position: absolute;
-    bottom: -1000px;
+    position: relative;
+    bottom: -150px;
     width: 100%;
     text-align: center;
     padding: 10px 0;
     color: #000000;
 }
 
+/* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  
+.footerCheck{
+  position: relative;
+  bottom: -150px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
