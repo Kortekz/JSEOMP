@@ -58,6 +58,7 @@ function checkTable() {
         `;
 
         purchased.forEach(function (product, index) {
+            
             let itemAmount = product.quantity * product.price;
             totalAmount += itemAmount;
             totalQuantity += product.quantity;

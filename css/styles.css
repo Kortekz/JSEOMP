@@ -133,12 +133,16 @@ html, body {
     padding-right: 50px;
 }
 .space{
-    padding-right: 20px;
+    padding-right: 15px;
 }
 .textSearch {
     border-radius: 5px;
     border: 2px solid black;
-    padding: 10px;
+    padding: 15px !important;
+}
+::placeholder{
+  font-size: 18px;
+  text-align: center;
 }
 .sortBtn{
     background-color: #000000;
@@ -171,6 +175,7 @@ html, body {
     font-size: 20px;
     text-transform: uppercase;
     transition: 0.3s ease;
+    margin-bottom: 10px;
 }
 .searchBtn:hover{
     background-color: transparent;
@@ -312,7 +317,10 @@ html, body {
     padding: 20px;
 }
 .modal-title {
-    color: #000;
+    color: white;
+}
+.modal-header{
+  background-color: black;
 }
 /* Styling for the form */
 #addItemForm {
@@ -399,7 +407,7 @@ input[type="submit"]:hover {
   padding: 20px;
 }
 #purchaseModal .modal-title {
-  color: #000;
+  color: white;
 }
 #purchaseModal .modal-body p {
   color: #000;
