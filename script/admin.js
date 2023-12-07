@@ -122,8 +122,8 @@ function sortProducts() {
 let sortBtn = document.querySelector('[data-sort]')
 sortBtn.addEventListener('click', ()=> {
     sortProducts()
-    addProducts()
     tableDisplay()
+    addProducts()
 })
 
 // Function to render spinner when all items are deleted
