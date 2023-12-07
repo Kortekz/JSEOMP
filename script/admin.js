@@ -27,9 +27,11 @@ items = JSON.parse(localStorage.getItem('items'))
 
 let table = document.querySelector('table')
 
-// Function to render the products in the table
-function corne(){
 
+
+
+// Function to render the products in the table
+function tableDisplay(){
      // Sort Button
      let sortBtn = `
      <div class="sorts">
@@ -76,10 +78,18 @@ function corne(){
     `
    
     table.innerHTML = sortBtn + tableHead + tableBody + addBtn 
-}
-corne()
 
-function favourite(){
+    // Iterate through each 'Edit' button and add event listeners
+    document.querySelectorAll('.edit').forEach((editButton, index) => {
+        editButton.addEventListener('click', () => {
+            displayEditModal(items[index], index);
+            // Pass the item and its index for editing
+        });
+    });
+}
+tableDisplay()
+
+function modified(){
     // sets the array in local storage
     localStorage.setItem('items',JSON.stringify(items))
     items = JSON.parse(localStorage.getItem('items'))
@@ -89,27 +99,12 @@ function favourite(){
 // Function to remove an item from the items array based on its position
 function remove(position) {
     items.splice(position, 1) // Removes the item at the specified position from the items array
-    favourite() // Updates the local storage with the modified 'items' array
-    corne() // Renders the updated table after the item is removed
+    modified() // Updates the local storage with the modified 'items' array
+    tableDisplay() // Renders the updated table after the item is removed
 }
-
-// Event listener for table clicks
-table.addEventListener('click', function() {
-    // Checks if the clicked element contains the class delete
-    if (event.target.classList.contains('delete')) {
-        remove(event.target.value) 
-        // Calls the 'remove' function with the value (index) of the clicked delete button
-        // Checks if all items are deleted (items.length === 0), then renders a spinner
-        if (items.length === 0) {
-            renderSpinner() 
-            // Renders a spinner in the table when all items are deleted
-        }
-    }
-})
 
 // Sort button
 // Function to sort products by price
-
 function sortProducts() {
     items.sort((a, b) => {
         let priceA = a.price
@@ -123,10 +118,12 @@ function sortProducts() {
         return 0
     })
 }
+// declaring the sort button to a variable with DOM
 let sortBtn = document.querySelector('[data-sort]')
 sortBtn.addEventListener('click', ()=> {
     sortProducts()
-    corne()
+    addProducts()
+    tableDisplay()
 })
 
 // Function to render spinner when all items are deleted
@@ -145,10 +142,27 @@ function renderSpinner() {
     table.style.border = 'none'
 }
 
+// Event listener for table clicks
+table.addEventListener('click', function() {
+    // Checks if the clicked element contains the class delete
+    if (event.target.classList.contains('delete')) {
+        remove(event.target.value) 
+        // Calls the 'remove' function with the value (index) of the clicked delete button
+        // Checks if all items are deleted (items.length === 0), then renders a spinner
+        if (items.length === 0) {
+            renderSpinner() 
+            // Renders a spinner in the table when all items are deleted
+        }
+    }
+})
+
+// Function for the add products
+function addProducts(){
+    
 // Event listener for 'Add Products' button click to display the modal
 document.getElementById('adminAdd').addEventListener('click', function(){
 
-    // Display the modal using innerHTML
+    // Displayingg the modal using innerHTML
     document.getElementById('modal').innerHTML = `
         <div id="addItemModal" class="modal fade" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -174,7 +188,6 @@ document.getElementById('adminAdd').addEventListener('click', function(){
         </div>
     </div>
     `;
-
     // Show the modal
     let addItemModal = new bootstrap.Modal(document.getElementById('addItemModal'));
     addItemModal.show();
@@ -183,17 +196,17 @@ document.getElementById('adminAdd').addEventListener('click', function(){
     document.getElementById('addItemForm').addEventListener('submit', function (event) {
         event.preventDefault();
         // Get values from the form
-        let newItemId = document.getElementById('itemId').value;
-        let newItemName = document.getElementById('itemName').value;
-        let newItemDescription = document.getElementById('itemDescription').value;
-        let newItemPrice = document.getElementById('itemPrice').value;
+        let newId = document.getElementById('itemId').value;
+        let newName = document.getElementById('itemName').value;
+        let newDescription = document.getElementById('itemDescription').value;
+        let newPrice = document.getElementById('itemPrice').value;
 
         // Create a new item object
         let newItem = {
-            id: parseInt(newItemId),
-            name: newItemName,
-            description: newItemDescription,
-            price: parseInt(newItemPrice),
+            id: parseInt(newId),
+            name: newName,
+            description: newDescription,
+            price: parseInt(newPrice),
             url: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png',
             quantity: 1,
         };
@@ -205,23 +218,19 @@ document.getElementById('adminAdd').addEventListener('click', function(){
         localStorage.setItem('items', JSON.stringify(items));
 
         // Refresh the table to display the new item
-        corne();
+        tableDisplay();
 
         // Hide the modal
         addItemModal.hide();
+        addProducts()
     });
 });
+}
+addProducts()
+// i had to call the function in itself and outside in order to add products multiple times
 
-    // Iterate through each 'Edit' button and add event listeners
-    document.querySelectorAll('.edit').forEach((editButton, index) => {
-        editButton.addEventListener('click', () => {
-        displayEditModal(items[index], index); 
-        // Pass the item and its index for editing
-        });
-    });
 
 // This is the logic for the edit button/modal
-
 // Function to display the edit modal with the selected item's details
 function displayEditModal(item, index) {
   document.getElementById('modal').innerHTML = `
@@ -264,7 +273,8 @@ function displayEditModal(item, index) {
     items[editedItemIndex].price = parseInt(document.getElementById('editItemPrice').value);
 
     localStorage.setItem('items', JSON.stringify(items));
-    corne();
+    tableDisplay();
     editItemModal.hide();
+    addProducts()
   });
 }

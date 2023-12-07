@@ -34,11 +34,31 @@ body {
   .navbar li:last-child {
     margin-right: 0; 
   }
-  .navbar a {
-    text-decoration: none;
-    color: #000;
-    font-size: 20px; 
-  }
+ /* Style for the text underline */
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  transition: color 0.3s; 
+}
+/* Add a black line under the text on hover */
+.navbar a:hover {
+  color: #000; /* Ensure the text color remains unchanged on hover */
+}
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0; /* Set initial width to 0 for the line */
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s; /* Add transition for line width */
+}
+.navbar a:hover::after {
+  width: 100%; /* Increase the width on hover to show the line */
+}
 html, body {
     height: 100%;
     margin: 0;
@@ -203,6 +223,10 @@ html, body {
     text-align: center;
     padding: 40px;
   }
+  .product-card {
+    border: 2px solid black !important; 
+    border-radius: 8px;
+  }
   .card-text {
     font-size: 18px;
     font-weight: 500; 
@@ -337,7 +361,7 @@ html, body {
   }
 
    /* Styling for the modal */
-   .modal-content {
+.modal-content {
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -529,7 +553,6 @@ input[type="submit"]:hover {
   text-align: center;
   font-size: 35px;
   padding-bottom: 100px;
-
 }
 .contact-content{
   position: absolute;
@@ -597,7 +620,40 @@ textarea {
   transition: 0.3s ease;
   color: #000000;
 }
-
+/* ICONS */
+.icons{
+  text-align: center;
+}
+.fa-linkedin{
+  padding: 20px;
+  font-size: 20px !important;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+.fa-facebook {
+  padding: 20px;
+  font-size: 20px !important;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+.fa-facebook:hover {
+    opacity: 0.7, !important;
+    color: white;
+}
+.fa-facebook {
+  background: #2d54a9;
+  color: white;
+}
+.fa-linkedin {
+  background: #0086c4;
+  color: white;
+}
 
 /* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
 .footer {
@@ -650,8 +706,6 @@ textarea {
   padding: 10px 0;
   color: #000000;
 }
-
-
 /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */
 .footerCon{
   position: relative;
