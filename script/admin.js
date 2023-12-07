@@ -13,12 +13,12 @@ function Constructor(id, name, description, price, url){
     this.quantity = 1
 }
 // Adding products
-let product1 = new Constructor(1, 'Xbox Series X Bundle', 'Xbox Series X 1TB + 3 Games + Controller', 11999, 'https://i.postimg.cc/gkqSwWj9/XBOX-SX-BNDL.jpg');
-let product2 = new Constructor(2, 'PS5 Spider-Man Bundle', 'PS5 1TB + Spider-Man + Controller', 12999, 'https://i.postimg.cc/pXtcXT2Y/PS5-SPIDER.jpg');
-let product3 = new Constructor(3, 'PS5 Slim COD Bundle', 'PS5 1TB + Call Of Duty Modern Warfare III + Controller', 12499, 'https://i.postimg.cc/Mp0FWSD9/Ps5SLim.jpg');
-let product4 = new Constructor(4, 'Xbox Series S Bundle', 'Xbox Series S + 3 Games + Controller ', 8499, 'https://i.postimg.cc/xdB9NZqJ/XBOXBNDL2.jpg');
-let product5 = new Constructor(5, 'PS5 Glacier White', 'PS5 Glacier White Disc Edition 1TB + Controller', 10999, 'https://i.postimg.cc/63z2GWVY/PS5-Glacier.jpg');
-let product6 = new Constructor(6, 'Xbox Series X Bundle', 'Xbox Series X 1TB + Diablo V + Controller', 10499, 'https://i.postimg.cc/c4MM5rSc/XBXSX-bndly1.jpg');
+let product1 = new Constructor(1, 'Xbox Series X Bundle', 'Xbox Series X 1TB + 3 Games + Controller', 11999, 'https://i.postimg.cc/gkqSwWj9/XBOX-SX-BNDL.jpg')
+let product2 = new Constructor(2, 'PS5 Spider-Man Bundle', 'PS5 1TB + Spider-Man + Controller', 12999, 'https://i.postimg.cc/pXtcXT2Y/PS5-SPIDER.jpg')
+let product3 = new Constructor(3, 'PS5 Slim COD Bundle', 'PS5 1TB + Call Of Duty Modern Warfare III + Controller', 12499, 'https://i.postimg.cc/Mp0FWSD9/Ps5SLim.jpg')
+let product4 = new Constructor(4, 'Xbox Series S Bundle', 'Xbox Series S + 3 Games + Controller ', 8499, 'https://i.postimg.cc/xdB9NZqJ/XBOXBNDL2.jpg')
+let product5 = new Constructor(5, 'PS5 Glacier White', 'PS5 Glacier White Disc Edition 1TB + Controller', 10999, 'https://i.postimg.cc/63z2GWVY/PS5-Glacier.jpg')
+let product6 = new Constructor(6, 'Xbox Series X Bundle', 'Xbox Series X 1TB + Diablo V + Controller', 10499, 'https://i.postimg.cc/c4MM5rSc/XBXSX-bndly1.jpg')
 
 // Pushing the products into the empty array
 items.push(product1, product2, product3, product4, product5, product6)
@@ -66,7 +66,7 @@ function tableDisplay(){
                         <td><button class="edit">Edit</button></td>
                         <td><button class='delete' value='${index}'>Delete</button></td>
                     </tr>
-                `;
+                `
             }).join('')}
         </tbody>
     `
@@ -157,13 +157,12 @@ table.addEventListener('click', function() {
 })
 
 // Function for the add products
-function addProducts(){
-    
-// Event listener for 'Add Products' button click to display the modal
-document.getElementById('adminAdd').addEventListener('click', function(){
-
-    // Displayingg the modal using innerHTML
-    document.getElementById('modal').innerHTML = `
+function addProducts() {
+    // Event listener for 'Add Products' button click to display the modal
+    document.getElementById('adminAdd').addEventListener('click', function () {
+        try {
+            // Displaying the modal using innerHTML
+            document.getElementById('modal').innerHTML = `
         <div id="addItemModal" class="modal fade" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -187,48 +186,50 @@ document.getElementById('adminAdd').addEventListener('click', function(){
             </div>
         </div>
     </div>
-    `;
-    // Show the modal
-    let addItemModal = new bootstrap.Modal(document.getElementById('addItemModal'));
-    addItemModal.show();
+    `
+   // Show the modal
+   let addItemModal = new bootstrap.Modal(document.getElementById('addItemModal'))
+   addItemModal.show()
 
-    // Add an event listener to the form inside the modal to handle new item addition
-    document.getElementById('addItemForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        // Get values from the form
-        let newId = document.getElementById('itemId').value;
-        let newName = document.getElementById('itemName').value;
-        let newDescription = document.getElementById('itemDescription').value;
-        let newPrice = document.getElementById('itemPrice').value;
+   // Add an event listener to the form inside the modal to handle new item addition
+   document.getElementById('addItemForm').addEventListener('submit', function (event) {
+       event.preventDefault()
+       // Get values from the form
+       let newId = document.getElementById('itemId').value
+       let newName = document.getElementById('itemName').value
+       let newDescription = document.getElementById('itemDescription').value
+       let newPrice = document.getElementById('itemPrice').value
 
-        // Create a new item object
-        let newItem = {
-            id: parseInt(newId),
-            name: newName,
-            description: newDescription,
-            price: parseInt(newPrice),
-            url: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png',
-            quantity: 1,
-        };
+       // Create a new item object
+       let newItem = {
+           id: parseInt(newId),
+           name: newName,
+           description: newDescription,
+           price: parseInt(newPrice),
+           url: 'https://i.postimg.cc/3rZ0H0D8/profile-Image.png',
+           quantity: 1,
+       }
 
-        // Add the new item to the items array
-        items.push(newItem);
+       // Add the new item to the items array
+       items.push(newItem)
 
-        // Save the updated items array to local storage
-        localStorage.setItem('items', JSON.stringify(items));
+       // Save the updated items array to local storage
+       localStorage.setItem('items', JSON.stringify(items))
 
-        // Refresh the table to display the new item
-        tableDisplay();
+       // Refresh the table to display the new item
+       tableDisplay()
 
-        // Hide the modal
-        addItemModal.hide();
-        addProducts()
-    });
-});
+       // Hide the modal
+       addItemModal.hide()
+       addProducts()
+   })
+} catch (error) {
+   console.error('An error occurred while adding products:', error)
+   // Handle the error condition, show a message to the user, or perform necessary actions
+}
+})
 }
 addProducts()
-// i had to call the function in itself and outside in order to add products multiple times
-
 
 // This is the logic for the edit button/modal
 // Function to display the edit modal with the selected item's details
@@ -258,23 +259,23 @@ function displayEditModal(item, index) {
         </div>
       </div>
     </div>
-  `;
+  `
 
-  let editItemModal = new bootstrap.Modal(document.getElementById('editItemModal'));
-  editItemModal.show();
+  let editItemModal = new bootstrap.Modal(document.getElementById('editItemModal'))
+  editItemModal.show()
 
   document.getElementById('editItemForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault()
     // Retrieve updated values from the form
-    let editedItemIndex = parseInt(document.getElementById('editItemIndex').value);
-    items[editedItemIndex].id = parseInt(document.getElementById('editItemId').value);
-    items[editedItemIndex].name = document.getElementById('editItemName').value;
-    items[editedItemIndex].description = document.getElementById('editItemDescription').value;
-    items[editedItemIndex].price = parseInt(document.getElementById('editItemPrice').value);
+    let editedItemIndex = parseInt(document.getElementById('editItemIndex').value)
+    items[editedItemIndex].id = parseInt(document.getElementById('editItemId').value)
+    items[editedItemIndex].name = document.getElementById('editItemName').value
+    items[editedItemIndex].description = document.getElementById('editItemDescription').value
+    items[editedItemIndex].price = parseInt(document.getElementById('editItemPrice').value)
 
-    localStorage.setItem('items', JSON.stringify(items));
-    tableDisplay();
-    editItemModal.hide();
+    localStorage.setItem('items', JSON.stringify(items))
+    tableDisplay()
+    editItemModal.hide()
     addProducts()
-  });
+  })
 }

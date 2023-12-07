@@ -78,3 +78,24 @@ function filterProducts(searchText) {
 
 // rendering of products
 renderProducts(items)
+
+
+// Function to render spinner when there are no products
+function noProducts() {
+    if (items.length === 0) {
+        // HTML for the spinner component
+        let spinnerHTML = `
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        `
+
+        // Replace the product container content with the spinner
+        productContainer.innerHTML = spinnerHTML
+    }
+}
+
+// Call the function to render spinner if no products are available
+noProducts()

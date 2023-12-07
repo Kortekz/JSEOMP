@@ -101,6 +101,56 @@ html, body {
     padding-top: 8px;
     padding-bottom: 20px;
 }
+.content{
+  margin: 10px auto;
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+/* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+.footP{
+  font-size: 18px;
+  text-align: center;
+}
+
+/* For screens 600px and below */
+@media (max-width: 600px) {
+  .container {
+      padding-top: 30px; /* Adjust padding for smaller screens */
+  }
+  .black-button {
+      width: 80px; /* Reduce button width for smaller screens */
+      padding: 12px; /* Adjust button padding */
+      font-size: 16px; /* Decrease font size for smaller screens */
+  }
+  .homeh1 {
+      font-size: 28px; /* Decrease heading font size */
+      padding-bottom: 10px; /* Adjust padding for smaller screens */
+  }
+  .homeP {
+      font-size: 16px; /* Decrease paragraph font size */
+      padding-top: 6px; /* Adjust padding for smaller screens */
+      padding-bottom: 10px; /* Adjust padding for smaller screens */
+  }
+  .footer {
+      position: static; /* Remove absolute positioning for footer */
+      text-align: center;
+      padding: 10px 0;
+  }
+  .footP {
+      font-size: 16px; /* Decrease footer text font size */
+      padding-top: 50px;
+  }
+}
+
 
 /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */
 .aboutBod{
@@ -130,8 +180,51 @@ html, body {
     max-width: 450px; 
     padding-left: 50px;
     height: auto; 
-    
 }
+
+/* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ 
+.footerAb {
+  position: relative;
+  bottom: -100px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+/* For screens 600px and below */
+@media (max-width: 600px) {
+  .containerAb {
+      padding-top: 20px; 
+  }
+
+  .abouth1 {
+      font-size: 28px; 
+  }
+
+  .aboutP {
+      font-size: 14px; 
+      padding-top: 6px; 
+      padding-left: 20px; 
+      padding-right: 20px; 
+  }
+  .images {
+      display: block; 
+      padding: 20px; 
+      margin-right: 0; 
+  }
+  .small-img {
+    max-width: 200px; 
+    height: auto; 
+    padding-left: 0; 
+    margin: 0 auto; 
+}
+  .footerAb {
+      position: static; 
+      text-align: center;
+      padding: 10px 0;
+  }
+}
+
 
 /* PRODUCT PAGE */ /* PRODUCT PAGE */ /* PRODUCT PAGE */ /* PRODUCT PAGE *//* PRODUCT PAGE */ /* PRODUCT PAGE */
 .Pro{
@@ -655,19 +748,7 @@ textarea {
   color: white;
 }
 
-/* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
-.footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    color: #000000;
-}
-.footP{
-    font-size: 18px;
-    text-align: center;
-}
+
 /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */
 .footerPro {
     position: relative;
@@ -677,15 +758,7 @@ textarea {
     padding: 10px 0;
     color: #000000;
 }
-/* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ /* ABOUT */ /* FOOTER */ 
-.footerAb {
-    position: relative;
-    bottom: -100px;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    color: #000000;
-}
+
 
 /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */
 .footerAd {
