@@ -210,4 +210,3 @@ document.getElementById('modalClose').addEventListener('click', function () {
 document.getElementById('purchaseButton').addEventListener('click', purchaseAct);
 // Call the visibility toggle function initially after the page loads so that the button does not appear
 window.addEventListener('load', btnVisible);
-
