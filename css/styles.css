@@ -150,7 +150,7 @@ html, body {
     border: none;
     width: 100px;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 18px;
     text-transform: uppercase;
     transition: 0.3s ease;
@@ -240,11 +240,12 @@ html, body {
   
   /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */
   main{
-    padding-top: 60px;
+    padding-top: 80px;
   }
   .h1Ad{
     text-align: center;
     padding-bottom: 60px;
+    padding-top: 80px;
     color: black;
   }
   table {
@@ -308,8 +309,33 @@ html, body {
   .btnAdd{
     position: absolute;
     margin-left: 1200px;
-    padding-top: 40px;
+    top: 250px;
   }
+  .sorts{
+    top:20px;
+  }
+  .sortBtn1{
+    background-color: #000000;
+    position: absolute;
+    top: 250px;
+    color: white;
+    border: none;
+    width: 120px;
+    margin-left: 80px;
+    padding: 15px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+.sortBtn1:hover{
+    background-color: transparent;
+    border: 2px solid black;
+    transition: 0.3s ease;
+    color: #000000;
+  }
+
    /* Styling for the modal */
    .modal-content {
     background-color: #fff;
@@ -349,6 +375,71 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
     background-color: #333;
+}
+#addItemModal .btn-close{
+  color: white; /* Set the color to white */
+  opacity: 1; /* Ensure full visibility */
+  font-size: 1.5rem; /* Adjust size if needed */
+  background: transparent; /* Remove background */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  transition: color 0.3s ease; /* Add transition effect */
+  padding-bottom: 18px;
+}
+/* EDIT MODAL */
+/* Style for the specific modal with ID 'editItemModal' */
+#editItemModal .modal-content {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#editItemModal .modal-header {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 15px;
+}
+#editItemModal .modal-title {
+  margin: 0;
+  font-size: 18px;
+}
+#editItemModal .modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+#editItemModal label {
+  margin-bottom: 5px;
+}
+#editItemModal input[type="text"],
+#editItemModal input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+#editItemModal input[type="submit"] {
+  padding: 8px 16px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#editItemModal input[type="submit"]:hover {
+  background-color: #000000;
+}
+#editItemModal .btn-close {
+  color: white; /* Set the color to white */
+  opacity: 1; /* Ensure full visibility */
+  font-size: 1.5rem; /* Adjust size if needed */
+  background: transparent; /* Remove background */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  transition: color 0.3s ease; /* Add transition effect */
+  padding-bottom: 18px;
+}
+#editItemModal .btn-close:hover {
+  color: #f8f9fa; /* Change color on hover if needed */
 }
 
 /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ 
@@ -422,6 +513,18 @@ input[type="submit"]:hover {
 #purchaseModal .modal-footer .btn-primary:hover {
   background-color: #333;
 }
+#purchaseModal .btn-close {
+  color: white; /* Set the color to white */
+  opacity: 1; /* Ensure full visibility */
+  font-size: 1.5rem; /* Adjust size if needed */
+  background: transparent; /* Remove background */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  transition: color 0.3s ease; /* Add transition effect */
+  padding-bottom: 18px;
+}
+
+
 
 /* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER *//* HOME FOOTER */ /* HOME FOOTER */ /* HOME FOOTER */
 .footer {
@@ -467,6 +570,17 @@ input[type="submit"]:hover {
 
 /* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  
 .footerCheck{
+  position: relative;
+  bottom: -150px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+
+
+/* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */
+.footerCon{
   position: relative;
   bottom: -150px;
   width: 100%;

@@ -29,6 +29,13 @@ let table = document.querySelector('table')
 
 // Function to render the products in the table
 function corne(){
+
+     // Sort Button
+     let sortBtn = `
+     <div class="sorts">
+     <button class="sortBtn1" id="sorting" data-sort> Sort Products </button>
+     </div>
+     `
     // Creating table header 
     let tableHead = `
         <thead>
@@ -66,8 +73,9 @@ function corne(){
     <div class="btnAdd">
     <button class="addBtn" id="adminAdd"> Add Products </button>
     </div>
-    `;
-    table.innerHTML = tableHead + tableBody + addBtn
+    `
+   
+    table.innerHTML = sortBtn + tableHead + tableBody + addBtn 
 }
 corne()
 
@@ -99,6 +107,28 @@ table.addEventListener('click', function() {
     }
 })
 
+// Sort button
+// Function to sort products by price
+
+function sortProducts() {
+    items.sort((a, b) => {
+        let priceA = a.price
+        let priceB = b.price
+        if (priceA < priceB) {
+            return -1
+        } 
+        if (priceA > priceB) {
+            return 1
+        }
+        return 0
+    })
+}
+let sortBtn = document.querySelector('[data-sort]')
+sortBtn.addEventListener('click', ()=> {
+    sortProducts()
+    corne()
+})
+
 // Function to render spinner when all items are deleted
 function renderSpinner() {
     // HTML for the spinner component
@@ -125,7 +155,7 @@ document.getElementById('adminAdd').addEventListener('click', function(){
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addItemModalLabel">Add New Item</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> X </button>
                 </div>
                 <div class="modal-body">
                     <form id="addItemForm">
@@ -182,4 +212,59 @@ document.getElementById('adminAdd').addEventListener('click', function(){
     });
 });
 
-    
+    // Iterate through each 'Edit' button and add event listeners
+    document.querySelectorAll('.edit').forEach((editButton, index) => {
+        editButton.addEventListener('click', () => {
+        displayEditModal(items[index], index); 
+        // Pass the item and its index for editing
+        });
+    });
+
+// This is the logic for the edit button/modal
+
+// Function to display the edit modal with the selected item's details
+function displayEditModal(item, index) {
+  document.getElementById('modal').innerHTML = `
+    <div id="editItemModal" class="modal fade" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editItemModalLabel">Edit Item</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> X </button>
+          </div>
+          <div class="modal-body">
+            <form id="editItemForm">
+              <input type="hidden" id="editItemIndex" value="${index}"> <!-- Store the index -->
+              <label for="editItemId">ID:</label>
+              <input type="number" id="editItemId" value="${item.id}" required>
+              <label for="editItemName">Name:</label>
+              <input type="text" id="editItemName" value="${item.name}" required>
+              <label for="editItemDescription">Description:</label>
+              <input type="text" id="editItemDescription" value="${item.description}" required>
+              <label for="editItemPrice">Price:</label>
+              <input type="number" id="editItemPrice" value="${item.price}" required>
+              <input type="submit" value="Save Changes">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  let editItemModal = new bootstrap.Modal(document.getElementById('editItemModal'));
+  editItemModal.show();
+
+  document.getElementById('editItemForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Retrieve updated values from the form
+    let editedItemIndex = parseInt(document.getElementById('editItemIndex').value);
+    items[editedItemIndex].id = parseInt(document.getElementById('editItemId').value);
+    items[editedItemIndex].name = document.getElementById('editItemName').value;
+    items[editedItemIndex].description = document.getElementById('editItemDescription').value;
+    items[editedItemIndex].price = parseInt(document.getElementById('editItemPrice').value);
+
+    localStorage.setItem('items', JSON.stringify(items));
+    corne();
+    editItemModal.hide();
+  });
+}

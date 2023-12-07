@@ -162,7 +162,7 @@ function purchaseAct() {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="purchaseModalLabel">Purchase Confirmation</h5>
-                    <button type="button" class="btn-close" id="modalClose" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" id="modalClose" data-bs-dismiss="modal" aria-label="Close"> X </button>
                 </div>
                 <div class="modal-body">
                     <p>Thank you for your purchase!</p>
