@@ -1,8 +1,10 @@
 
+// DOM MANIPULATION
 
 // Retrieving purchased items from localStorage
 let purchased = JSON.parse(localStorage.getItem('purchased'));
 let checkContain = document.querySelector('[data-Check]');
+let purchaseButton = document.getElementById('purchaseButton')
 
 // Function to add an item to the cart
 function addItemToCart(product) {
@@ -10,37 +12,45 @@ function addItemToCart(product) {
     let cartItems = JSON.parse(localStorage.getItem('purchased')) || [];
     // Update the cart data in localStorage and update the display
     localStorage.setItem('purchased', JSON.stringify(cartItems));
-    checkTable(); // Update the display of the cart table
-    btnVisible(); // Toggle the visibility of the purchase button
+    checkTable(); 
+    // Update the display of the cart table
+    btnVisible(); 
+    // Toggle the visibility of the purchase button
 }
 
 // Function to merge duplicate items in the cart
 function mergeDuplicates() {
-    let uniqueItems = [];
-    // Retrieve existing cart items from localStorage
+    let uniqueItems = []; // Array to hold unique items
+    // Retrieve existing cart items from localStorage or initialize an empty array
     let cartItems = JSON.parse(localStorage.getItem('purchased')) || [];
 
+    // Loop through each item in the cart
     cartItems.forEach(item => {
+        // Check if theres an existing item in the uniqueItems array with the same name
         let existingItem = uniqueItems.find(unique => unique.name === item.name);
 
+        // If the item exists in uniqueItems, merge quantities and update totalPrice
         if (existingItem) {
             existingItem.quantity += item.quantity;
             existingItem.totalPrice += item.totalPrice;
         } else {
+            // If it's a new item, add a copy to the uniqueItems array
             uniqueItems.push({ ...item });
         }
-    })
-    purchased = uniqueItems; // Update the cart with unique items
+    });
+    purchased = uniqueItems; // Update the purchased array with unique items
 }
 
-
 function checkTable() {
+    // Merge duplicate items in the cart
     mergeDuplicates();
-    let checkoutTable = '';
-    let totalAmount = 0;
-    let totalQuantity = 0;
 
-    if (purchased && purchased.length > 0) {
+    let checkoutTable = ''; // Variable to store the HTML for the checkout table
+    let totalAmount = 0; // calculate total amount in the cart
+    let totalQuantity = 0; // calculate total quantity of items in the cart
+
+    if (purchased && purchased.length > 0) { // Checking if there are items in the 'purchased' array
+        // Creating the table structure if there are items in the cart
         checkoutTable += `
             <table id="checkoutTable">
                 <thead>
@@ -56,13 +66,14 @@ function checkTable() {
                 </thead>
                 <tbody>
         `;
-
+        // Looping through each product in the purchased array to create table rows
         purchased.forEach(function (product, index) {
-            
+            // Calculation for total price and Total Quantity for each item
             let itemAmount = product.quantity * product.price;
             totalAmount += itemAmount;
             totalQuantity += product.quantity;
 
+            // Creating table rows for each product in the cart
             checkoutTable += `
                 <tr>
                     <td> <p class="checkP"> ${product.id} </p> </td>
@@ -75,7 +86,7 @@ function checkTable() {
                 </tr>
             `;
         });
-        // Add a row for the total quantity and total amount
+        // Adding a row at the end for the total quantity and total amount in the cart
         checkoutTable += `
                 <tr>
                     <td colspan="4"> <p class="tableTotal"> Total:</p></td>
@@ -89,24 +100,16 @@ function checkTable() {
             </table>
         `;
     } else {
+        // If the cart is empty, display this message
         checkoutTable = `<p class="checkText">Cart is empty</p>`;
     }
+    // Displaying the generated checkout table in the HTML element
     document.querySelector('[data-Check]').innerHTML = checkoutTable;
 }
-
 
 // Call the function to render the checkout table
 checkTable();
 addItemToCart
-
-
-// Function to remove an item from the purchased array based on its position
-function removeItem(position) {
-    purchased.splice(position, 1);
-    localStorage.setItem('purchased', JSON.stringify(purchased));
-    checkTable();
-    btnVisible(); // Toggle the purchase button visibility
-}
 
 // Event listener for table clicks
 document.querySelector('[data-Check]').addEventListener('click', function(event) {
@@ -119,7 +122,6 @@ document.querySelector('[data-Check]').addEventListener('click', function(event)
         }
     }
 });
-
 // Function to display text 
 function displayEmptyCart() {
     let checkText = `<p class="checkText">Cart is empty</p>`;
@@ -128,7 +130,6 @@ function displayEmptyCart() {
 
 // Function to toggle visibility of the purchase button based on items in the checkout
 function btnVisible() {
-    let purchaseButton = document.getElementById('purchaseButton');
     if (purchased && purchased.length > 0) {
         purchaseButton.style.display = 'block';
     } else {
@@ -136,13 +137,7 @@ function btnVisible() {
     }
 }
 
-// Event listener for the purchase button click
-document.getElementById('purchaseButton').addEventListener('click', purchaseAct);
-
-// Call the function to set the button visibility
-btnVisible();
-
-// Adjust the removeItem function to call the visibility function after removing an item
+// Function to remove an item from the purchased array based on its position
 function removeItem(position) {
     purchased.splice(position, 1);
     localStorage.setItem('purchased', JSON.stringify(purchased));
@@ -150,9 +145,8 @@ function removeItem(position) {
     btnVisible(); 
     // Toggle the purchase button visibility
 }
-
-// Call the visibility toggle function initially after the page loads so that the button does not appear
-window.addEventListener('load', btnVisible);
+// Call the function to set the button visibility
+btnVisible();
 
 // Function to handle the purchase action
 function purchaseAct() {
@@ -175,28 +169,45 @@ function purchaseAct() {
     </div>
         `;
 
-    let modalContainer = document.createElement('div');
-    modalContainer.innerHTML = modalContent;
+    // Create a container for the modal and set its HTML content
+let modalContainer = document.createElement('div');
+modalContainer.innerHTML = modalContent;
 
-    document.body.appendChild(modalContainer);
+// Append the modal container to the body of the document
+document.body.appendChild(modalContainer);
 
-    let purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
-    purchaseModal.show();
+// creating a Bootstrap Modal using the modal element and display it
+let purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+purchaseModal.show();
 
-    // Clear checkout when OK is clicked on modal
-    document.getElementById('modalCloseButton').addEventListener('click', function () {
-        localStorage.removeItem('purchased');
-        purchased = [];
-        checkTable();
-        btnVisible();
-        modalContainer.remove();
-    });
-    // Clear checkout when X is clicked on modal
-    document.getElementById('modalClose').addEventListener('click', function () {
-        localStorage.removeItem('purchased');
-        purchased = [];
-        checkTable();
-        btnVisible();
-        modalContainer.remove();
-    });
+// Event listener for the OK button in the modal to clear checkout
+document.getElementById('modalCloseButton').addEventListener('click', function () {
+    // Remove 'purchased' data from local storage
+    localStorage.removeItem('purchased');
+    // Reset the 'purchased' array to an empty array
+    purchased = [];
+    // Call functions to update the checkout table and buttons
+    checkTable();
+    btnVisible();
+    // Remove the modal container from the DOM
+    modalContainer.remove();
+});
+// Event listener for the 'X' button in the modal to clear checkout
+document.getElementById('modalClose').addEventListener('click', function () {
+    // Remove 'purchased' data from local storage
+    localStorage.removeItem('purchased');
+    // Reset the 'purchased' array to an empty array
+    purchased = [];
+    // Call functions to update the checkout table and buttons
+    checkTable();
+    btnVisible();
+    // Remove the modal container from the DOM
+    modalContainer.remove();
+});
+
 }
+// Event listener for the purchase button click
+document.getElementById('purchaseButton').addEventListener('click', purchaseAct);
+// Call the visibility toggle function initially after the page loads so that the button does not appear
+window.addEventListener('load', btnVisible);
+
