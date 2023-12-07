@@ -54,6 +54,7 @@ function sortProducts() {
     })
     renderProducts(items)
 }
+
 // Function to filter products based on search text
 function filterProducts(searchText) {
     let searchItems = items.filter(
