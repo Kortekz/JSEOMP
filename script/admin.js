@@ -14,7 +14,7 @@ function Constructor(id, name, description, price, url) {
   this.url = url
   this.quantity = 1
 }
-// Adding products
+// Adding products based on my personal preference
 let product1 = new Constructor(
   1,
   "Xbox Series X Bundle",
@@ -276,70 +276,67 @@ function addProducts() {
         })
     } catch (error) {
       alert("An error occurred while adding products:", error)
-      // Handle the error condition, show a message to the user, or perform necessary actions
+      // Handle the error condition, show an alert to the user, or perform necessary actions
     }
   })
 }
 addProducts()
 
-// This is the logic for the edit button/modal
-// Function to display the edit modal with the selected items details
-function displayEditModal(item, index) {
-  document.getElementById("modal").innerHTML = `
-    <div id="editItemModal" class="modal fade" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editItemModalLabel">Edit Item</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> X </button>
-          </div>
-          <div class="modal-body">
-            <form id="editItemForm">
-              <input type="hidden" id="editItemIndex" value="${index}"> <!-- Store the index -->
-              <label for="editItemId">ID:</label>
-              <input type="number" id="editItemId" value="${item.id}" required>
-              <label for="editItemName">Name:</label>
-              <input type="text" id="editItemName" value="${item.name}" required>
-              <label for="editItemDescription">Description:</label>
-              <input type="text" id="editItemDescription" value="${item.description}" required>
-              <label for="editItemPrice">Price:</label>
-              <input type="number" id="editItemPrice" value="${item.price}" required>
-              <input type="submit" value="Save Changes">
-            </form>
-          </div>
+    // This is the logic for the edit button/modal
+    // Function to display the edit modal with the selected items details
+    function displayEditModal(item, index) {
+    document.getElementById("modal").innerHTML = `
+        <div id="editItemModal" class="modal fade" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editItemModalLabel">Edit Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> X </button>
+            </div>
+            <div class="modal-body">
+                <form id="editItemForm">
+                <input type="hidden" id="editItemIndex" value="${index}"> <!-- Store the index -->
+                <label for="editItemId">ID:</label>
+                <input type="number" id="editItemId" value="${item.id}" required>
+                <label for="editItemName">Name:</label>
+                <input type="text" id="editItemName" value="${item.name}" required>
+                <label for="editItemDescription">Description:</label>
+                <input type="text" id="editItemDescription" value="${item.description}" required>
+                <label for="editItemPrice">Price:</label>
+                <input type="number" id="editItemPrice" value="${item.price}" required>
+                <input type="submit" value="Save Changes">
+                </form>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  `
+        </div>
+    `
+    // Creating a Bootstrap modal instance for editing items
+    let editItemModal = new bootstrap.Modal(
+        document.getElementById("editItemModal")
+    )
+    editItemModal.show() 
+    // Displaying the edit item modal
 
-  let editItemModal = new bootstrap.Modal(
-    document.getElementById("editItemModal")
-  )
-  editItemModal.show()
+    // Event listener for the form submission inside the edit item modal
+    document.getElementById("editItemForm").addEventListener("submit", function (event) {
+        event.preventDefault() 
+        // Preventing the default form submission behavior
 
-  document
-    .getElementById("editItemForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault()
-      // Retrieve updated values from the form
-      let editedItemIndex = parseInt(
-        document.getElementById("editItemIndex").value
-      )
-      items[editedItemIndex].id = parseInt(
-        document.getElementById("editItemId").value
-      )
-      items[editedItemIndex].name =
-        document.getElementById("editItemName").value
-      items[editedItemIndex].description = document.getElementById(
-        "editItemDescription"
-      ).value
-      items[editedItemIndex].price = parseInt(
-        document.getElementById("editItemPrice").value
-      )
+        // Retrieving updated values from the form fields
+        let editItemIndex = parseInt(document.getElementById("editItemIndex").value)
+        items[editItemIndex].id = parseInt(document.getElementById("editItemId").value)
+        items[editItemIndex].name = document.getElementById("editItemName").value
+        items[editItemIndex].description = document.getElementById("editItemDescription").value
+        items[editItemIndex].price = parseInt(document.getElementById("editItemPrice").value)
+        // Updating local storage with the modified items array
+        localStorage.setItem("items", JSON.stringify(items))
 
-      localStorage.setItem("items", JSON.stringify(items))
-      tableDisplay()
-      editItemModal.hide()
-      addProducts()
+        // Refreshing the table display with updated item information
+        tableDisplay()
+        // Hiding the edit item modal after form submission
+        editItemModal.hide()
+        // Re-adding event listeners for adding products after editing
+        addProducts()
     })
 }
