@@ -72,7 +72,7 @@ let table = document.querySelector("table")
 
 // Function to render the products in the table
 function tableDisplay() {
-  // Sort Button
+  // this is the button i will use to sort the products
   let sortBtn = `
      <div class="sorts">
      <button class="sortBtn1" id="sorting" data-sort> Sort Products </button>
@@ -112,7 +112,7 @@ function tableDisplay() {
               .join("")}
         </tbody>
     `
-  // Adding Add Products button
+  // this is the button i will use for adding products, it will pop up a modal
   let addBtn = `
     <div class="btnAdd">
     <button class="addBtn" id="adminAdd"> Add Products </button>
@@ -121,7 +121,7 @@ function tableDisplay() {
 
   table.innerHTML = sortBtn + tableHead + tableBody + addBtn
 
-  // Iterate through each 'Edit' button and add event listeners
+  // Iterate through each Edit button and add event listeners
   document.querySelectorAll(".edit").forEach((editButton, index) => {
     editButton.addEventListener("click", () => {
       displayEditModal(items[index], index)
@@ -132,6 +132,7 @@ function tableDisplay() {
 }
 tableDisplay()
 
+// this function is responsible for updating the local storage with the current state of the items array
 function modified() {
   // sets the array in local storage
   localStorage.setItem("items", JSON.stringify(items))
@@ -144,7 +145,7 @@ function remove(position) {
   items.splice(position, 1) 
   // Removes the item at the specified position from the items array
   modified()
-  // Updates the local storage with the modified 'items' array
+  // Updates the local storage with the modified items array
   tableDisplay()
   // Renders the updated table after the item is removed
 }
@@ -193,7 +194,7 @@ table.addEventListener("click", function () {
   // Checks if the clicked element contains the class delete
   if (event.target.classList.contains("delete")) {
     remove(event.target.value)
-    // Calls the 'remove' function with the value (index) of the clicked delete button
+    // Calls the remove function with the value (index) of the clicked delete button
     // Checks if all items are deleted (items.length === 0), then renders a spinner
     if (items.length === 0) {
       renderSpinner()
@@ -232,14 +233,14 @@ function addProducts() {
             </div>
         </div>
     </div>
-    `;
+    `
       // Show the modal
       let showModal = new bootstrap.Modal(
         document.getElementById("showModal")
       )
       showModal.show()
 
-      // Add an event listener to the form inside the modal to handle new item addition
+      // Add an event listener to the form inside the modal to handle new items
       document
         .getElementById("addItemForm")
         .addEventListener("submit", function (event) {
@@ -274,7 +275,7 @@ function addProducts() {
           addProducts()
         })
     } catch (error) {
-      console.error("An error occurred while adding products:", error)
+      alert("An error occurred while adding products:", error)
       // Handle the error condition, show a message to the user, or perform necessary actions
     }
   })
@@ -282,7 +283,7 @@ function addProducts() {
 addProducts()
 
 // This is the logic for the edit button/modal
-// Function to display the edit modal with the selected item's details
+// Function to display the edit modal with the selected items details
 function displayEditModal(item, index) {
   document.getElementById("modal").innerHTML = `
     <div id="editItemModal" class="modal fade" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
