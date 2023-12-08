@@ -44,24 +44,61 @@ body {
 }
 /* Add a black line under the text on hover */
 .navbar a:hover {
-  color: #000; /* Ensure the text color remains unchanged on hover */
+  color: #000; 
 }
 .navbar a::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: -2px;
-  width: 0; /* Set initial width to 0 for the line */
+  width: 0; 
   height: 2px;
   background-color: #000;
-  transition: width 0.3s; /* Add transition for line width */
+  transition: width 0.3s; 
 }
 .navbar a:hover::after {
-  width: 100%; /* Increase the width on hover to show the line */
+  width: 100%; 
 }
 html, body {
     height: 100%;
     margin: 0;
+}
+/* Styles for navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  margin-right: 20px; 
+  overflow-x: auto; 
+  flex-wrap: nowrap;
+}
+.navbar-toggler {
+ border: 2px solid black !important;
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+  padding-top: 20px;
+}
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 720px) {
+  .navbar ul {
+    padding-left: 185px; 
+    padding-right: 0; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    overflow-x: hidden; 
+  }
+  .navbar li {
+    margin-right: 0; 
+    margin-bottom: 10px; 
+  }
 }
 
 /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */ /* HOME PAGE */
@@ -121,36 +158,34 @@ html, body {
   text-align: center;
 }
 
-/* For screens 600px and below */
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .container {
-      padding-top: 30px; /* Adjust padding for smaller screens */
+      padding-top: 30px; 
   }
   .black-button {
-      width: 80px; /* Reduce button width for smaller screens */
-      padding: 12px; /* Adjust button padding */
-      font-size: 16px; /* Decrease font size for smaller screens */
+      width: 80px; 
+      padding: 12px; 
+      font-size: 16px; 
   }
   .homeh1 {
-      font-size: 28px; /* Decrease heading font size */
-      padding-bottom: 10px; /* Adjust padding for smaller screens */
+      font-size: 28px; 
+      padding-bottom: 10px; 
   }
   .homeP {
-      font-size: 16px; /* Decrease paragraph font size */
-      padding-top: 6px; /* Adjust padding for smaller screens */
-      padding-bottom: 10px; /* Adjust padding for smaller screens */
+      font-size: 16px; 
+      padding-top: 6px; 
+      padding-bottom: 10px; 
   }
   .footer {
-      position: static; /* Remove absolute positioning for footer */
+      position: static; 
       text-align: center;
       padding: 10px 0;
   }
   .footP {
-      font-size: 16px; /* Decrease footer text font size */
+      font-size: 16px; 
       padding-top: 50px;
   }
 }
-
 
 /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */ /* ABOUT */
 .aboutBod{
@@ -191,16 +226,14 @@ html, body {
   padding: 10px 0;
   color: #000000;
 }
-/* For screens 600px and below */
-@media (max-width: 600px) {
+
+@media (max-width: 720px) {
   .containerAb {
       padding-top: 20px; 
   }
-
   .abouth1 {
       font-size: 28px; 
   }
-
   .aboutP {
       font-size: 14px; 
       padding-top: 6px; 
@@ -243,10 +276,11 @@ html, body {
 .search {
     display: flex;
     align-items: center;
-    padding-right: 50px;
 }
 .space{
     padding-right: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .textSearch {
     border-radius: 5px;
@@ -280,15 +314,16 @@ html, body {
     color: white;
     border: none;
     padding: 10px;
-    padding-bottom: 9px;
-    padding-top: 7px;
-    padding-left: 13px;
-    padding-right: 12px;
+    padding-bottom: 13px;
+    padding-top: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
     border-radius: 10px;
     font-size: 20px;
     text-transform: uppercase;
     transition: 0.3s ease;
     margin-bottom: 10px;
+    margin-right: 60px;
 }
 .searchBtn:hover{
     background-color: transparent;
@@ -354,7 +389,69 @@ html, body {
     color: #000000;
     font-weight: 700;
   }
+  /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */
+.footerPro {
+  position: relative;
+  bottom: -50px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+/* RESPONSIVENESS */
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 14px;
+  }
+  .footerPro {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .sort-search-container {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sortBtn {
+    width: 70%;
+    margin-bottom: 10px;
+    margin-left: 25px;
+  }
+  .search {
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+  }
+  .textSearch {
+    width: 75%;;
+    margin-bottom: 10px;
+  }
+  .searchBtn {
+    width: 85%;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .sort-search-container {
+    margin: 30px 10px;
+  }
+  .textSearch {
+    width: 100%; 
+    margin-bottom: 8px; 
+    font-size: 14px; 
+  }
+  .sortBtn{
+    width: 80%; 
+    margin-bottom: 8px; 
+    font-size: 14px; 
+  }
+  .searchBtn {
+    width: 100%;
+    margin-bottom: 8px; 
+    font-size: 14px; 
+  }
   
+}
   /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */  /* ADMIN */
   main{
     padding-top: 80px;
@@ -365,8 +462,8 @@ html, body {
     padding-top: 80px;
     color: black;
   }
-  table {
-    width: 90%;
+  .tableAd {
+    width: 100% !important;
     border-collapse: collapse;
     margin: 20px auto;
     border: 2px solid #000000;
@@ -378,9 +475,10 @@ html, body {
     font-size: 18px;
   }
   th {
-    background-color: #000000;
+    background-color: #000000 !important;
     color: white;
     text-align: center !important;
+    padding: 20px !important;
   }
   .adminImg {
     width: 200px;
@@ -425,8 +523,20 @@ html, body {
   }
   .btnAdd{
     position: absolute;
-    margin-left: 1200px;
-    top: 250px;
+  top: 250px; 
+  right: 150px; 
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  }
+  .btnAdd:hover {
+    background-color: transparent;
+    transition: 0.3s ease;
+    color: #000000;
   }
   .sorts{
     top:20px;
@@ -438,7 +548,6 @@ html, body {
     color: white;
     border: none;
     width: 120px;
-    margin-left: 80px;
     padding: 15px;
     margin-bottom: 50px;
     border-radius: 10px;
@@ -452,7 +561,6 @@ html, body {
     transition: 0.3s ease;
     color: #000000;
   }
-
    /* Styling for the modal */
 .modal-content {
     background-color: #fff;
@@ -493,18 +601,17 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #333;
 }
-#addItemModal .btn-close{
-  color: white; /* Set the color to white */
-  opacity: 1; /* Ensure full visibility */
-  font-size: 1.5rem; /* Adjust size if needed */
-  background: transparent; /* Remove background */
-  border: none; /* Remove border */
-  outline: none; /* Remove outline */
-  transition: color 0.3s ease; /* Add transition effect */
+#showModal .btn-close{
+  color: white; 
+  opacity: 1; 
+  font-size: 1.5rem; 
+  background: transparent;
+  border: none; 
+  outline: none;
+  transition: color 0.3s ease; 
   padding-bottom: 18px;
 }
 /* EDIT MODAL */
-/* Style for the specific modal with ID 'editItemModal' */
 #editItemModal .modal-content {
   background-color: #f5f5f5;
   border-radius: 8px;
@@ -546,34 +653,143 @@ input[type="submit"]:hover {
   background-color: #000000;
 }
 #editItemModal .btn-close {
-  color: white; /* Set the color to white */
-  opacity: 1; /* Ensure full visibility */
-  font-size: 1.5rem; /* Adjust size if needed */
-  background: transparent; /* Remove background */
-  border: none; /* Remove border */
-  outline: none; /* Remove outline */
-  transition: color 0.3s ease; /* Add transition effect */
+  color: white; 
+  opacity: 1; 
+  font-size: 1.5rem;
+  background: transparent; 
+  border: none; 
+  outline: none; 
+  transition: color 0.3s ease; 
   padding-bottom: 18px;
 }
 #editItemModal .btn-close:hover {
-  color: #f8f9fa; /* Change color on hover if needed */
+  color: #f8f9fa; 
+}
+/* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */
+.footerAd {
+  position: relative;
+  bottom: -150px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+/* ADMIN RESPONSIVENESS */
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 14px; 
+  }
+  .h1Ad {
+    text-align: center;
+  }
+  .sortBtn1 {
+    background-color: #000000;
+    position: absolute;
+    top: 250px;
+    color: white;
+    border: none;
+    width: 150px;
+    padding: 15px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    margin-right: 50px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+  }
+  .sortBtn1:hover {
+    background-color: transparent;
+    border: 2px solid black;
+    transition: 0.3s ease;
+    color: #000000;
+  }
+  .addBtn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    width: 150px;
+    position: absolute;
+    right: -120px; 
+  }
+  .addBtn:hover {
+    background-color: transparent;
+    color: black;
+    transition: background-color 0.3s ease;
+    border: 2px solid black;
+  }
+  /* Show table header labels in the first row */
+  tbody:before {
+    content: attr(data-labels);
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  /* Make the table responsive */
+  table {
+    width: calc(100% - 20px); 
+    margin: 0 auto; 
+    border-collapse: collapse;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 12px;
+    margin-top: 80px !important;
+  }
+  .adminImg {
+    width: 80px;
+    height: auto;
+  }
+  @media screen and (max-width: 360px) {
+    body {
+      font-size: 10px;
+    }
+    .adminImg {
+      width: 60px;
+    }
+    .sortBtn {
+      width: 150px !important;
+      left: 10px !important;
+      position: absolute;
+    }
+    .addBtn {
+    width: 150px !important; 
+    top: 60px; 
+    margin-right: 80px;
+    margin-left: 200px;
+    position: absolute;
+  }
+  /* Add space between buttons and table */
+  table {
+    margin-top: 80px !important;
+  }
+  }
 }
 
-/* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ /* CHECKOUT PAGE */ 
-.checkH1{
+/* CHECKOUT PAGE */
+/* Checkout Table Styles */
+.checkH1 {
   text-align: center;
   font-size: 40px;
   font-weight: 500;
   color: black;
 }
-.checkText{
+.checkoutTable {
+  width: 90%; 
+  margin: 0 auto; 
+  border-collapse: collapse; 
+}
+.checkText {
   text-align: center;
   font-size: 30px;
   font-weight: 500;
   padding-top: 100px;
 }
-#purchaseButton{
-  background-color: rgb(0, 191, 0);;
+#purchaseButton {
+  background-color: rgb(0, 191, 0);
   color: white;
   border: none;
   padding: 15px;
@@ -583,12 +799,13 @@ input[type="submit"]:hover {
   text-transform: uppercase;
   transition: 0.3s ease;
   width: 120px;
+  margin: 20px auto; 
 }
 #purchaseButton:hover {
   background-color: transparent;
   color: rgb(0, 191, 0);
   transition: background-color 0.3s ease;
-  border: 2px solid rgb(0, 191, 0);;
+  border: 2px solid rgb(0, 191, 0);
 }
 .btnPur {
   display: flex;
@@ -596,14 +813,14 @@ input[type="submit"]:hover {
   align-items: center;
   padding-top: 20px;
 }
-.tableTotal{
+.tableTotal {
   padding-right: 32px;
   padding-top: 10px;
   font-size: 25px;
   text-align: right;
   font-weight: 700;
 }
-.checkP{
+.checkP {
   text-align: center;
   font-size: 18px;
   font-weight: 400;
@@ -631,35 +848,54 @@ input[type="submit"]:hover {
   background-color: #333;
 }
 #purchaseModal .btn-close {
-  color: white; /* Set the color to white */
-  opacity: 1; /* Ensure full visibility */
-  font-size: 1.5rem; /* Adjust size if needed */
-  background: transparent; /* Remove background */
-  border: none; /* Remove border */
-  outline: none; /* Remove outline */
-  transition: color 0.3s ease; /* Add transition effect */
+  color: white; 
+  opacity: 1;
+  font-size: 1.5rem; 
+  background: transparent; 
+  border: none; 
+  outline: none; 
+  transition: color 0.3s ease; 
   padding-bottom: 18px;
 }
+/* Footer Checkout */
+.footerCheck {
+  position: relative;
+  bottom: -150px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+
+/* Responsive*/
+  @media screen and (max-width: 720px) {
+    .checkoutTable {
+      width: 90%;
+      overflow-x: auto;
+      display: block;
+      table-layout: auto;
+    }
+  }
 
 /* CONTACT PAGE */ /* CONTACT PAGE */ /* CONTACT PAGE */ /* CONTACT PAGE */ /* CONTACT PAGE */ /* CONTACT PAGE */
 .Conh1{
-  text-align: center;
-  font-size: 35px;
-  padding-bottom: 100px;
-}
-.contact-content{
-  position: absolute;
-  text-align: left;
-  margin-left: 100px; 
+  padding-bottom: 50px;
 }
 .conP{
-  text-align: center;
-  font-size: 20px;
-  padding-top: 10px;
+  font-size: 18px;
+  padding-top: 20px;
 }
-.container1 {
-  justify-content: flex-end !important; /* Aligns the form to the right */
-  padding: 0px 50px 100px 50px; /* Adjust vertical padding */
+.contact-content {
+  text-align: center;
+  padding-bottom: 150px; 
+  margin-right: 50px;
+}
+form {
+  padding: 20px;
+  text-align: left;
+}
+.sendBtn {
+  width: 100%;
 }
 /* Styling for the form */
 .formF{
@@ -747,38 +983,6 @@ textarea {
   background: #0086c4;
   color: white;
 }
-
-
-/* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */ /* PRODUCT FOOTER */
-.footerPro {
-    position: relative;
-    bottom: -50px;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    color: #000000;
-}
-
-
-/* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */ /* FOOTER ADMIN */
-.footerAd {
-    position: relative;
-    bottom: -150px;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    color: #000000;
-}
-
-/* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  /* FOOTER CHECKOUT */  
-.footerCheck{
-  position: relative;
-  bottom: -150px;
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
-  color: #000000;
-}
 /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */ /* FOOTER CONTACT */
 .footerCon{
   position: relative;
@@ -787,4 +991,21 @@ textarea {
   text-align: center;
   padding: 10px 0;
   color: #000000;
+}
+/* Media query */
+@media (max-width: 720px) {
+  .Conh1 {
+    font-size: 28px;
+  }
+  .contact-content {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  /* Adjust form inputs */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  textarea {
+    font-size: 14px;
+  }
 }

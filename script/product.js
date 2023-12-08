@@ -13,7 +13,7 @@ let productContainer = document.querySelector('[data-Products]')
 
 // Function to add a product to the purchased array
 function add(index) {
-    purchased.push(items[index]);
+    purchased.push(items[index])
     localStorage.setItem('purchased', JSON.stringify(purchased))
 }
 // Function to render products
@@ -36,7 +36,7 @@ function renderProducts(products) {
             add(index)
         })
         // Attach product card to the product container
-        productContainer.appendChild(productCard);
+        productContainer.appendChild(productCard)
     })
 }
 // Function to sort products by price
