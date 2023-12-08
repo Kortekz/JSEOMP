@@ -197,6 +197,7 @@ html, body {
 }
 .abouth1{
     color: black;
+    padding-bottom: 20px;
 }
 .aboutP{
     font-size: 17px;
@@ -249,7 +250,8 @@ html, body {
     max-width: 200px; 
     height: auto; 
     padding-left: 0; 
-    margin: 0 auto; 
+    margin: 10px auto; 
+
 }
   .footerAb {
       position: static; 
@@ -776,6 +778,7 @@ input[type="submit"]:hover {
   font-size: 40px;
   font-weight: 500;
   color: black;
+  padding-bottom: 50px;
 }
 .checkoutTable {
   width: 90%; 
@@ -920,7 +923,7 @@ label {
 input[type="name"],
 input[type="surname"],
 input[type="text"],
-input[type="number"],
+input[type="tel"],
 input[type="email"],
 textarea {
   width: 100%;
@@ -977,6 +980,10 @@ textarea {
 }
 .fa-facebook {
   background: #2d54a9;
+  color: white;
+}
+.fa-linkedin:hover {
+  opacity: 0.7, !important;
   color: white;
 }
 .fa-linkedin {
